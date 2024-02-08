@@ -12,6 +12,7 @@ dependencies {
     implementation("org.openrewrite:rewrite-java")
     implementation("org.openrewrite:rewrite-maven")
     implementation("org.openrewrite.recipe:rewrite-static-analysis:${rewriteVersion}")
+    implementation("org.openrewrite.recipe:rewrite-java-security:2.4.0-SNAPSHOT")
     implementation("org.openrewrite:rewrite-yaml")
     implementation("org.openrewrite:rewrite-xml")
     // TODO: Switch back to using release version
@@ -34,6 +35,18 @@ dependencies {
     }
     testRuntimeOnly("org.apache.ant:ant:latest.release") {
         because("RelativePathCommandTest")
+    }
+    testRuntimeOnly("commons-fileupload:commons-fileupload:1.5") {
+        because("Apache Multipart Filename")
+    }
+    testRuntimeOnly("org.apache.commons:commons-fileupload2-jakarta-servlet6:2.0.0-M2") {
+        because("Apache Multipart Filename")
+    }
+    testRuntimeOnly("javax.servlet:javax.servlet-api:4.0.1") {
+        because("Apache Multipart Filename")
+    }
+    testRuntimeOnly("jakarta.servlet:jakarta.servlet-api:6.0.0") {
+        because("Apache Multipart Filename")
     }
 }
 
