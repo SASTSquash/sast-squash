@@ -1,3 +1,8 @@
+/*
+ * Copyright 2023 LightShield.
+ * <p>
+ * All Rights Reserved.
+ */
 package io.sastsquash.java;
 
 import org.openrewrite.*;

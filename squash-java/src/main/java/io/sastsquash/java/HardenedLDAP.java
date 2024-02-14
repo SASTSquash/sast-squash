@@ -1,5 +1,11 @@
+/*
+ * Copyright 2023 LightShield.
+ * <p>
+ * All Rights Reserved.
+ */
 package io.sastsquash.java;
 
+import io.sastsquash.java.util.Literals;
 import org.openrewrite.ExecutionContext;
 import org.openrewrite.Recipe;
 import org.openrewrite.TreeVisitor;
@@ -36,10 +42,9 @@ public class HardenedLDAP extends Recipe {
 
         @Override
         public J.Literal visitLiteral(J.Literal literal, P p) {
-            if (literal.getValue() instanceof Boolean && (Boolean) literal.getValue()) {
-                if (SEARCH_CONTROLS_CONSTRUCTOR.advanced().isArgument(getCursor(), 4)) {
-                    return literal.withValue(false).withValueSource("false");
-                }
+            if (Literals.isLiteral(true, literal) &&
+                SEARCH_CONTROLS_CONSTRUCTOR.advanced().isArgument(getCursor(), 4)) {
+                return literal.withValue(false).withValueSource("false");
             }
             return literal;
         }

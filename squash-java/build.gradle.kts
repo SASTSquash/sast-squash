@@ -48,6 +48,9 @@ dependencies {
     testRuntimeOnly("jakarta.servlet:jakarta.servlet-api:6.0.0") {
         because("Apache Multipart Filename")
     }
+    testRuntimeOnly("io.netty:netty-all:4.1.106.Final") {
+        because("Netty Request and Response Splitting")
+    }
 }
 
 testing {

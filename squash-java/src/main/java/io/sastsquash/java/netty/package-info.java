@@ -5,6 +5,6 @@
  */
 
 @NonNullApi
-package io.sastsquash.java;
+package io.sastsquash.java.netty;
 
 import org.openrewrite.internal.lang.NonNullApi;
