@@ -5,7 +5,6 @@
  */
 package io.sastsquash.java;
 
-import io.sastsquash.java.util.Literals;
 import org.openrewrite.ExecutionContext;
 import org.openrewrite.Recipe;
 import org.openrewrite.TreeVisitor;
@@ -13,7 +12,7 @@ import org.openrewrite.analysis.InvocationMatcher;
 import org.openrewrite.java.JavaIsoVisitor;
 import org.openrewrite.java.tree.J;
 
-public class HardenedLDAP extends Recipe {
+public class HardenLDAP extends Recipe {
 
     @Override
     public String getDisplayName() {
@@ -42,7 +41,7 @@ public class HardenedLDAP extends Recipe {
 
         @Override
         public J.Literal visitLiteral(J.Literal literal, P p) {
-            if (Literals.isLiteral(true, literal) &&
+            if (J.Literal.isLiteralValue(literal, true) &&
                 SEARCH_CONTROLS_CONSTRUCTOR.advanced().isArgument(getCursor(), 4)) {
                 return literal.withValue(false).withValueSource("false");
             }

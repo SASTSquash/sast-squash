@@ -5,7 +5,6 @@
  */
 package io.sastsquash.java.netty;
 
-import io.sastsquash.java.util.Literals;
 import io.sastsquash.java.visitor.DeleteMethodArgumentVisitor;
 import org.openrewrite.ExecutionContext;
 import org.openrewrite.Preconditions;
@@ -78,7 +77,7 @@ public class NettyRequestOrResponseSplitting extends Recipe {
 
         @Override
         public J.Literal visitLiteral(J.Literal literal, ExecutionContext executionContext) {
-            if (Literals.isLiteral(false, literal) &&
+            if (J.Literal.isLiteralValue(literal, false) &&
                 (DEFAULT_HTTP_HEADERS.advanced().isArgument(getCursor(), 0) ||
                  COMBINED_HTTP_HEADERS.advanced().isArgument(getCursor(), 0) ||
                  DEFAULT_HTTP_REQUEST.advanced().isArgument(getCursor(), 3) ||

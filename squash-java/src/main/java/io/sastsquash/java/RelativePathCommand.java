@@ -26,7 +26,7 @@ public class RelativePathCommand extends Recipe {
 
     @Option(
             displayName = "Base Path",
-            description = "The base path to use for relative paths",
+            description = "The base path to use for relative paths. If not provided, `/usr/bin` is used.",
             example = "/usr/bin",
             required = false
     )

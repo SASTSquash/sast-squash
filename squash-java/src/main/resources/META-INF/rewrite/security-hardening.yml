@@ -1,0 +1,13 @@
+---
+type: specs.openrewrite.org/v1beta/recipe
+name: io.sastsquash.java.JavaSecurityHardening
+displayName: Java security hardening
+description: Applies best-practice security hardening to Java code.
+tags:
+  - security
+recipeList:
+  - org.openrewrite.maven.security.UseHttpsForRepositories
+  - org.openrewrite.gradle.security.UseHttpsForRepositories
+  - org.openrewrite.staticanalysis.NeedBraces
+  - org.openrewrite.staticanalysis.EqualsAvoidsNull
+  - org.openrewrite.java.apache.httpclient4.MigrateDefaultHttpClient
