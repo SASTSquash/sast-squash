@@ -24,7 +24,6 @@ public class SanitizeApacheMultipartFilename extends Recipe {
 
     @Override
     public String getDescription() {
-        // TODO: Remove trailing period after https://github.com/openrewrite/rewrite/pull/3985 is merged
         return "This change guards Apache Common's popular multipart request and [file uploading library](https://commons.apache.org/proper/commons-fileupload/) and prevents arbitrary file upload attacks.\n" +
                "\n" +
                "Although end users uploading a file through the browser can't fully control the file name, attackers armed with HTTP proxies, scripts or `curl` can manipulate the file to contain directory escape sequences and " +
@@ -34,7 +33,7 @@ public class SanitizeApacheMultipartFilename extends Recipe {
                "\n" +
                "Additional Resources:\n" +
                " - [OWASP: Unrestricted File Upload](https://owasp.org/www-community/vulnerabilities/Unrestricted_File_Upload)\n" +
-               " - [portswigger.net/web-security/file-upload](https://portswigger.net/web-security/file-upload).";
+               " - [portswigger.net/web-security/file-upload](https://portswigger.net/web-security/file-upload)";
     }
 
     @Override
